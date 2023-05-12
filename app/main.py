@@ -3,6 +3,7 @@ from tkinter import *
 import customtkinter as ctk
 import PIL.Image, PIL.ImageTk
 from pytube import YouTube
+from data import *
 
 # Colors
 white = '#FEFFFF'
@@ -28,6 +29,16 @@ class MinimalTube(ctk.CTk):
         ctk.set_default_color_theme('dark-blue')
         ctk.set_appearance_mode('dark')
 
+        # home frame
+        self.home = ctk.CTkFrame(self, corner_radius=0, width=480, height=250)
+        self.home.grid(row=0, column=0)
+
+        # video frame
+        self.video = ctk.CTkFrame(self, corner_radius=0, fg_color=gray_light, width=480, height=250)
+
+        # setting frame
+        self.setting = ctk.CTkFrame(self, corner_radius=0, fg_color=mercury, width=480, height=250)
+
         # load the images
         self.arrow = ctk.CTkImage(dark_image=PIL.Image.open('images/dark/push.png'), light_image=PIL.Image.open('images/light/push.png'), size=(45, 45))
         self.github = ctk.CTkImage(dark_image=PIL.Image.open('images/dark/github.png'), light_image=PIL.Image.open('images/light/github.png'), size=(32, 32))
@@ -42,30 +53,39 @@ class MinimalTube(ctk.CTk):
         self.dark = ctk.CTkImage(dark_image=PIL.Image.open('images/dark/moon.png'), light_image=PIL.Image.open('images/light/moon.png'), size=(32, 32))
         self.light = ctk.CTkImage(dark_image=PIL.Image.open('images/dark/sun.png'), light_image=PIL.Image.open('images/light/sun.png'), size=(32, 32))
 
-        # next page
-        self.button_push = ctk.CTkButton(self, text=None, image=self.arrow, fg_color='transparent', hover=False, command=lambda: print('button pressed!'))
-        self.button_push.place(relx=1, rely=0.75, anchor=E)
+        # next page "video"
+        self.home_button_push = ctk.CTkButton(self.home, text=None, image=self.arrow, fg_color='transparent', hover=False, command=lambda: change_frame(self.video, [self.home, self.video]))
+        self.home_button_push.place(relx=1, rely=0.75, anchor=E)
+
+        # next page "setting"
+        self.video_button_push = ctk.CTkButton(self.video, text=None, image=self.arrow, fg_color='transparent', hover=False, command=lambda: change_frame(self.setting, [self.video, self.setting]))
+        self.video_button_push.place(relx=1, rely=0.75, anchor=E)
+
+        # next page "home"
+        self.setting_button_push = ctk.CTkButton(self.setting, text=None, image=self.arrow, fg_color='transparent', hover=False, command=lambda: change_frame(self.home, [self.setting, self.home]))
+        self.setting_button_push.place(relx=1, rely=0.75, anchor=E)
 
         # buttons social media
-        self.button_github = ctk.CTkButton(self, text=None, image=self.github, height=80, width=80)
-        self.button_github.configure(fg_color=(white, shoe_wax), hover=False, corner_radius=10)
+        self.button_github = ctk.CTkButton(self.home, text=None, image=self.github, height=80, width=80)
+        self.button_github.configure(fg_color=(white, shoe_wax), hover_color=(gray_light, gray), corner_radius=10)
         self.button_github.place(relx=0.2, rely=0.1, anchor=N)
 
-        self.button_instagram = ctk.CTkButton(self, text=None, image=self.instagram, height=80, width=80)
-        self.button_instagram.configure(fg_color=(white, shoe_wax), hover=False, corner_radius=10)
+        self.button_instagram = ctk.CTkButton(self.home, text=None, image=self.instagram, height=80, width=80)
+        self.button_instagram.configure(fg_color=(white, shoe_wax), hover_color=(gray_light, gray), corner_radius=10)
         self.button_instagram.place(relx=0.4, rely=0.1, anchor=N)
 
-        self.button_share = ctk.CTkButton(self, text=None, image=self.share, height=80, width=80)
-        self.button_share.configure(fg_color=(white, shoe_wax), hover=False, corner_radius=10)
+        self.button_share = ctk.CTkButton(self.home, text=None, image=self.share, height=80, width=80)
+        self.button_share.configure(fg_color=(white, shoe_wax), hover_color=(gray_light, gray), corner_radius=10)
         self.button_share.place(relx=0.6, rely=0.1, anchor=N)
 
         # about the project
-        self.title = ctk.CTkLabel(self, text='Name the project', text_color=(shoe_wax, white), font=ctk.CTkFont(size=16, weight='bold'))
+        self.title = ctk.CTkLabel(self.home, text='Name the project', text_color=(shoe_wax, white), font=ctk.CTkFont(size=16, weight='bold'))
         self.title.place(relx=0.4, rely=0.5, anchor=N)
 
-        self.description = ctk.CTkLabel(self, text='Lorem Ipsum is simply\n dummy text of the printing\n and typesetting industry.', font=ctk.CTkFont(size=12, weight='bold'), justify='center')
+        self.description = ctk.CTkLabel(self.home, text='Lorem Ipsum is simply\n dummy text of the printing\n and typesetting industry.', font=ctk.CTkFont(size=12, weight='bold'), justify='center')
         self.description.configure(width=65, height=65, corner_radius=10, fg_color=(white, shoe_wax), text_color=(shoe_wax, white))
         self.description.place(relx=0.4, rely=0.75, anchor=CENTER)
+
 
     # Add icon to window
     def iconbitmap(self, bitmap):

@@ -47,15 +47,15 @@ class MinimalTube(ctk.CTk):
         self.button_push.place(relx=1, rely=0.75, anchor=E)
 
         # default buttons
-        self.button_1 = ctk.CTkButton(self, text=None, image=self.github, height=80, width=80)
+        self.button_1 = ctk.CTkButton(self, text=None, image=self.github, height=80, width=80, command=lambda: link(self.button_1.bind('<Button-1>'), 'GITHUB'))
         self.button_1.configure(fg_color=(white, shoe_wax), hover_color=(gray_light, gray), corner_radius=10)
         self.button_1.place(relx=0.2, rely=0.1, anchor=N)
 
-        self.button_2 = ctk.CTkButton(self, text=None, image=self.instagram, height=80, width=80)
+        self.button_2 = ctk.CTkButton(self, text=None, image=self.instagram, height=80, width=80, command=lambda: link(self.button_2.bind('<Button-1>'), 'INSTAGRAM'))
         self.button_2.configure(fg_color=(white, shoe_wax), hover_color=(gray_light, gray), corner_radius=10)
         self.button_2.place(relx=0.4, rely=0.1, anchor=N)
 
-        self.button_3 = ctk.CTkButton(self, text=None, image=self.share, height=80, width=80)
+        self.button_3 = ctk.CTkButton(self, text=None, image=self.share, height=80, width=80, command=lambda: link(self.button_2.bind('<Button-1>'), ''))
         self.button_3.configure(fg_color=(white, shoe_wax), hover_color=(gray_light, gray), corner_radius=10)
         self.button_3.place(relx=0.6, rely=0.1, anchor=N)
 
@@ -69,15 +69,26 @@ class MinimalTube(ctk.CTk):
 
         self.search = ctk.CTkEntry(self, placeholder_text='YOUR URL HERE!', font=ctk.CTkFont(size=14, weight='bold'))
         self.search.configure(width=230, height=40, corner_radius=10, justify='center', fg_color=(white, shoe_wax), border_color=(white, shoe_wax), text_color=(shoe_wax, white))
-        
 
-        # Function to change a page "home", "video_download" and "configuration"
+        # progress bar
+        self.progress_bar = ctk.CTkProgressBar(self, orientation='horizontal', mode='determinate')
+        self.progress_bar.configure(width=100, height=20, corner_radius=10, fg_color=(shoe_wax), progress_color=(gray))
+
+        # Função para destruir e reconstruir a janela
+        def reset_window():
+            # Destruir a janela atual
+            app.destroy()
+
+            # Iniciar o loop principal da nova janela
+            app = MinimalTube()
+
+        # function to change a page "home", "video_download" and "configuration"
         def change_buttons(status):
             if status == 'home':
                 # buttons
-                self.button_1.configure(image=self.github, command=None)
-                self.button_2.configure(image=self.instagram, command=None)
-                self.button_3.configure(image=self.share, command=None)
+                self.button_1.configure(image=self.github, command=lambda: link(self.button_1.bind('<Button-1>'), 'GITHUB'))
+                self.button_2.configure(image=self.instagram, command=lambda: link(self.button_2.bind('<Button-2>'), 'INSTAGRAM'))
+                self.button_3.configure(image=self.share, command=lambda: link(self.button_2.bind('<Button-3>'), ''))
 
                 # about the project
                 self.title.configure(text='MinimalTube')
@@ -96,6 +107,7 @@ class MinimalTube(ctk.CTk):
                 # about the project
                 self.title.configure(text='The video Name')
                 self.search.place(relx=0.4, rely=0.75, anchor=CENTER)
+                self.progress_bar.place(relx=0.4, rely=0.9, anchor=CENTER)
                 self.description.place_forget()
 
                 # next page
@@ -103,7 +115,7 @@ class MinimalTube(ctk.CTk):
 
             elif status == 'configuration':
                 # buttons
-                self.button_1.configure(image=self.refresh, command=None)
+                self.button_1.configure(image=self.refresh, command=lambda: app.destroy())
                 self.button_2.configure(image=self.dark, command=lambda: change_mode('dark'))
                 self.button_3.configure(image=self.light, command=lambda: change_mode('light'))
 
@@ -119,7 +131,7 @@ class MinimalTube(ctk.CTk):
                 print('ERRO!')
 
 
-    # Add icon to window
+    # add icon to window
     def iconbitmap(self, bitmap):
         self._iconbitmap_method_called = False
         super().wm_iconbitmap('images/icon/video.ico')

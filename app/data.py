@@ -3,6 +3,10 @@ from tkinter import *
 import customtkinter as ctk
 import webbrowser
 from pytube import YouTube
+import os
+
+#set default resolution
+quality = '360p'
 
 # change the theme to "light", "dark" and "system"
 def change_mode(value):
@@ -19,37 +23,68 @@ def change_mode(value):
 # attach a link to open in browser
 def link(event, var):
     if var == 'GITHUB':
-        webbrowser.open_new('https://github.com/Dimitri-Matheus') #open Github
+        webbrowser.open_new('https://github.com/Dimitri-Matheus') #open github link
 
     elif var == 'INSTAGRAM':
-        webbrowser.open_new('https://www.instagram.com/dimi_math/') #open Instagram
+        webbrowser.open_new('https://www.instagram.com/dimi_math/') #open instagram link
 
+    elif var == '':
+        webbrowser.open_new('') #open donwload folder
+        
     else:
-        webbrowser.open_new('') #open Linktree
+        print('ERROR: LINK NOT WORKING!')
 
 
-# function to download videos pytube
-def download_videos(url, state, hd, progress):
+# creating a new folder to attach the video files
+def create_folder_download(folder_name):
+    global new_folder_path
+
+    # get current downloads directory
+    current_path = os.path.join(os.path.expanduser('~'), 'Downloads')
+
+    # create the full path to the new folder
+    new_folder_path = os.path.join(current_path, folder_name)
+
+    try:
+        # create the folder if it doesn't exist
+        if not os.path.exists(new_folder_path):
+            os.makedirs(new_folder_path)
+            print(f"Folder '{folder_name}' created successfully.")
+        else:
+            print(f"Folder '{folder_name}' already exists.")
+
+        # change downloads directory to new folder
+        os.chdir(new_folder_path)
+        print(f"Download path changed to '{new_folder_path}'.")
+
+    except OSError as e:
+        print(f"Error creating folder: {str(e)}")
+
+
+# function to download videos from youtube using pytube
+def download_videos(url, state, button):
+    global quality
+    global new_folder_path
+
     # get link to youtube videos
     youtube_var = YouTube(url)
 
+    # download videos
     if state == 0:
-        # get video size
-        video_size = youtube_var.streams.filter(progressive=True, file_extension='mp4', resolution=hd).first().filesize
+        create_folder_download('DOWNLOAD YOUTUBE VIDEOS HERE!')
+        youtube_var.streams.filter(progressive=True, file_extension='mp4', resolution=quality).first().download(output_path=new_folder_path)
+        button.configure(text='Downloaded!')
 
-        # download video
-        stream = youtube_var.streams.filter(progressive=True, file_extension='mp4', resolution=hd).first()
-        stream.download(filename="video.mp4", output_path="downloads", on_progress_callback=lambda stream, chunk, bytes_remaining: progress.update(int(100 - (100 * bytes_remaining / video_size))))
+        # video details
+        print(f'Title: {youtube_var.title}\nResolution: {quality}\nThumbnail: {youtube_var.thumbnail_url}')
 
-        # set progress to 100% when download is complete
-        progress.update(100)
-
-        print(f'Resolution: {hd}')
-        print('Downloaded video!')
-
+    # set resolution to 720p
     elif state == 1:
-        # show video title
-        print(youtube_var.title)
+        quality = '720p'
+        button.configure(fg_color=('#D9D9D9', '#343638'))
+        print(f'resolution set to {quality}')
 
-# Main program
-#download_videos('https://www.youtube.com/watch?v=-X_yVkQrAXs', 0, '360p')
+    # show video title
+    elif state == 2:
+        button.configure(text=youtube_var.title)
+

@@ -2,7 +2,7 @@
 from tkinter import *
 import customtkinter as ctk
 import PIL.Image, PIL.ImageTk
-from resource import *
+from resource import link, change_mode, download_videos
 
 # Colors
 white = '#FEFFFF'

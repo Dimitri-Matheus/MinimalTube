@@ -71,7 +71,7 @@ def download_videos(url, state, button):
 
     # download videos
     if state == 0:
-        create_folder_download('DOWNLOAD YOUTUBE VIDEOS HERE!')
+        create_folder_download('DOWNLOADED YOUTUBE VIDEOS HERE!')
         youtube_var.streams.filter(progressive=True, file_extension='mp4', resolution=quality).first().download(output_path=new_folder_path)
         button.configure(text='Downloaded!')
 

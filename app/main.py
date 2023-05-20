@@ -123,7 +123,7 @@ class MinimalTube(ctk.CTk):
     # add icon to window
     def iconbitmap(self, bitmap):
         self._iconbitmap_method_called = False
-        super().wm_iconbitmap('img/icon/menu.ico')
+        super().wm_iconbitmap('C:/Users/dimit/OneDrive/Documentos/Project/MinimalTube/img/icon/menu.ico')
 
 
 if __name__ == "__main__":

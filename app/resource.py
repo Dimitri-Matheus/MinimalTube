@@ -24,9 +24,11 @@ def change_mode(value):
 def link(event, var):
     if var == 'GITHUB':
         webbrowser.open_new('https://github.com/Dimitri-Matheus') #open github link
+        print('link opened successfully!')
 
     elif var == 'INSTAGRAM':
         webbrowser.open_new('https://www.instagram.com/dimi_math/') #open instagram link
+        print('link opened successfully!')
 
     elif var == '':
         webbrowser.open_new('') #open donwload folder

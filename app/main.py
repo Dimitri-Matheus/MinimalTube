@@ -2,7 +2,7 @@
 from tkinter import *
 import customtkinter as ctk
 import PIL.Image, PIL.ImageTk
-from resource import link, change_mode, download_videos
+from resource import *
 
 # Colors
 white = '#FEFFFF'
@@ -123,7 +123,7 @@ class MinimalTube(ctk.CTk):
     # add icon to window
     def iconbitmap(self, bitmap):
         self._iconbitmap_method_called = False
-        super().wm_iconbitmap('img/icon/video.ico')
+        super().wm_iconbitmap('img/icon/menu.ico')
 
 
 if __name__ == "__main__":

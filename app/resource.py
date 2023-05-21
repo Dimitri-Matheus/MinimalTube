@@ -24,11 +24,11 @@ def change_mode(value):
 def link(event, var):
     if var == 'GITHUB':
         webbrowser.open_new('https://github.com/Dimitri-Matheus') #open github link
-        print('link opened successfully!')
+        print('link opened success!')
 
     elif var == 'INSTAGRAM':
         webbrowser.open_new('https://www.instagram.com/dimi_math/') #open instagram link
-        print('link opened successfully!')
+        print('link opened success!')
 
     elif var == '':
         webbrowser.open_new('') #open donwload folder
@@ -83,7 +83,7 @@ def download_videos(url, state, button):
     # set resolution to 720p
     elif state == 1:
         quality = '720p'
-        button.configure(fg_color=('#D9D9D9', '#343638'))
+        button.configure(text='Resolution: 720p')
         print(f'resolution set to {quality}')
 
     # show video title

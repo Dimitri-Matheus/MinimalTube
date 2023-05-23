@@ -3,7 +3,7 @@
 <h3 align="center">
 	<img src="https://github.com/Dimitri-Matheus/Dimitri-Matheus/assets/121637762/03ec39d0-9d1a-44cd-ba83-825681a44c3f" width="250" alt="Logo"/><br/>
 	<img src="https://raw.githubusercontent.com/catppuccin/catppuccin/main/assets/misc/transparent.png" height="30" width="0px"/>
-	This app offers a minimalist design and allows users to easily download YouTube videos. With its user-friendly interface, users can quickly input the video link and initiate the download process. It provides a clean and efficient experience for saving YouTube videos on their devices.
+	This app features a minimalist design and enables easy downloading of YouTube videos. With an intuitive interface, users can input the video link and initiate the download process quickly and efficiently.
 	<img src="https://raw.githubusercontent.com/catppuccin/catppuccin/main/assets/misc/transparent.png" height="30" width="0px"/>
 </h3>
 
@@ -50,7 +50,7 @@ To run the application, you need to have Python 3 installed and the following li
 
 ## Usage
 
-1. Clone the `REPOSITORY` or `DOWNLOAD` the application.
+1. Clone the [repository](https://github.com/Dimitri-Matheus/MinimalTube) or `DOWNLOAD` the application.
 2. Install the required libraries with the following commands:
 
 ![terminal 1](https://github.com/Dimitri-Matheus/MinimalTube/assets/121637762/2fcf1ccb-ecef-4082-8fd7-37e6dd4b67c9)

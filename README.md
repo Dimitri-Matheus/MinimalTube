@@ -73,7 +73,7 @@ This project can be customized to your liking. If you didn't like any of the ava
 <details>
 <summary>⚙️ Used settings</summary>
    
-   - Open the project folder and navigate to `themes > standard.json` then make a copy of this file.
+   - Open the project folder and navigate to `minimaltube > themes > standard.json` then make a copy of this file.
    
    - Now you can edit each parameter as desired.
    

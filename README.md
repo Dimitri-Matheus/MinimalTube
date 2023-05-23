@@ -50,7 +50,7 @@ To run the application, you need to have Python 3 installed and the following li
 
 ## Usage
 
-1. Clone the [repository](https://github.com/Dimitri-Matheus/MinimalTube) or `DOWNLOAD` the application.
+1. Clone the [repository](https://github.com/Dimitri-Matheus/MinimalTube) or [download](https://github.com/Dimitri-Matheus/MinimalTube/releases) the application.
 2. Install the required libraries with the following commands:
 
 ![terminal 1](https://github.com/Dimitri-Matheus/MinimalTube/assets/121637762/84e1a070-85ba-49c5-abcf-f0dd7ebb6560)

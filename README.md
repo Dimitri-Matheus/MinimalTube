@@ -58,7 +58,7 @@ To run the application, you need to have Python 3 installed and the following li
 ❗ To use the themes, it is necessary to clone the repository on your machine
 ```
 
-3. Choose your theme (standard, reddish, forest, cappuccino)
+3. Choose your theme (standard, grayline, mint, reddish)
 4. Open the **`main.py`** and modify this line of code:
 
 ![terminal 2](https://github.com/Dimitri-Matheus/MinimalTube/assets/121637762/bc09b22b-9b23-46c9-9021-6e0060bce55d)
@@ -77,7 +77,7 @@ This project can be customized to your liking. If you didn't like any of the ava
    
    - Now you can edit each parameter as desired.
    
-   - Here are some parameters that I usually edit (the first color refers to the **light mode** and the second color to the **dark mode**).
+   - Here are some parameters that I usually edit (the initial color corresponds to the ``light mode``, while the second color corresponds to the ``dark mode``).
 <p>
 
 ```json
@@ -97,7 +97,7 @@ This project can be customized to your liking. If you didn't like any of the ava
 </p>
 </details>
 
----
+#
 
 ## Contributing
 

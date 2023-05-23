@@ -2,8 +2,8 @@
   "CTkButton": {
     "corner_radius": 10,
     "border_width": 0,
-    "fg_color": ["white", "#2B2B2B"],
-    "hover_color": ["#D9D9D9", "#343638"],
+    "fg_color": ["#d09593", "#bd6f67"],
+    "hover_color": ["#bd6f67", "#b85451"],
     "border_color": ["#3E454A", "#949A9F"],
     "text_color": ["gray98", "#DCE4EE"],
     "text_color_disabled": ["gray78", "gray68"]
@@ -16,10 +16,10 @@
   "CTkEntry": {
     "corner_radius": 10,
     "border_width": 2,
-    "fg_color": ["white", "#2B2B2B"],
-    "border_color": ["white", "#2B2B2B"],
+    "fg_color": ["#d09593", "#b85451"],
+    "border_color": ["#d09593", "#b85451"],
     "text_color":["#2B2B2B", "white"],
-    "placeholder_text_color": ["gray52", "gray62"]
+    "placeholder_text_color": ["#2B2B2B", "white"]
   },
   "CTkFont": {
     "macOS": {

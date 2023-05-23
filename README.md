@@ -11,16 +11,16 @@
 
 ## Previews
 <details>
-<summary>🌙 Dark mode </summary>
+<summary>☀️ Light mode </summary>
 	<p align="center">
-  	<img src="https://github.com/Dimitri-Matheus/MinimalTube/assets/121637762/d84237c1-b699-43fe-b20e-9b9e6f729004"  alt="image 1"/>
+	<img src="https://github.com/Dimitri-Matheus/MinimalTube/assets/121637762/fdc5df48-715b-49c6-8a55-89da131681db"  alt="image 2"/>
 	</p>
 </details>
 
 <details>
-<summary>☀️ Light mode </summary>
+<summary>🌙 Dark mode </summary>
 	<p align="center">
-	<img src="https://github.com/Dimitri-Matheus/MinimalTube/assets/121637762/fdc5df48-715b-49c6-8a55-89da131681db"  alt="image 2"/>
+  	<img src="https://github.com/Dimitri-Matheus/MinimalTube/assets/121637762/d84237c1-b699-43fe-b20e-9b9e6f729004"  alt="image 1"/>
 	</p>
 </details>
 

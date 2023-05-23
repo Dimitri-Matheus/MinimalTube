@@ -36,13 +36,13 @@
 
 To run the application, you need to have Python 3 installed and the following libraries:
 
-[⬛️](https://www.python.org/)  `Python`
+[🟥](https://www.python.org/)  `Python`
 
-[🔳](https://pypi.org/project/Pillow/)  `Pillow`
+[🟨](https://pypi.org/project/Pillow/)  `Pillow`
 
 [🟩](https://github.com/pytube/pytube)  `Pytube`
 
-[🟥](https://github.com/TomSchimansky/CustomTkinter)  `Custom Tkinter`
+[🟦](https://github.com/TomSchimansky/CustomTkinter)  `Custom Tkinter`
 
 ⬜  `tkinter, os and webbrowser`
 

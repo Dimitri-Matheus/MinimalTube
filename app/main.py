@@ -15,7 +15,7 @@ class MinimalTube(ctk.CTk):
         self.resizable(width=False, height=False)
 
         # property the theme
-        ctk.set_default_color_theme('themes/standard.json') # themes: "standard", "reddish", "forest" and "cappucino"
+        ctk.set_default_color_theme('themes/cappucino.json') # themes: "standard", "grayline", "mint", "reddish"
         ctk.set_appearance_mode('system')
 
         # load the images

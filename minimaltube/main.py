@@ -2,7 +2,7 @@
 from tkinter import *
 import customtkinter as ctk
 import PIL.Image, PIL.ImageTk
-from resource import change_mode, link, download_videos
+from data import change_mode, link, download_videos
 
 # the window
 class MinimalTube(ctk.CTk):

@@ -13,14 +13,14 @@
 <details>
 <summary>☀️ Light mode </summary>
 	<p align="center">
-	<img src="https://github.com/Dimitri-Matheus/MinimalTube/assets/121637762/fdc5df48-715b-49c6-8a55-89da131681db"  alt="image 2"/>
+	<img src="https://github.com/Dimitri-Matheus/MinimalTube/assets/121637762/74fc9a10-0a93-4e72-b76c-5208e7906e18"  alt="light"/>
 	</p>
 </details>
 
 <details>
 <summary>🌙 Dark mode </summary>
 	<p align="center">
-  	<img src="https://github.com/Dimitri-Matheus/MinimalTube/assets/121637762/d84237c1-b699-43fe-b20e-9b9e6f729004"  alt="image 1"/>
+  	<img src="https://github.com/Dimitri-Matheus/MinimalTube/assets/121637762/51f6bf6a-5b84-448e-98de-474488cb1dff"  alt="dark"/>
 	</p>
 </details>
 
@@ -53,7 +53,8 @@ To run the application, you need to have Python 3 installed and the following li
 1. Clone the [repository](https://github.com/Dimitri-Matheus/MinimalTube) or `DOWNLOAD` the application.
 2. Install the required libraries with the following commands:
 
-![terminal 1](https://github.com/Dimitri-Matheus/MinimalTube/assets/121637762/2fcf1ccb-ecef-4082-8fd7-37e6dd4b67c9)
+![terminal 1](https://github.com/Dimitri-Matheus/MinimalTube/assets/121637762/84e1a070-85ba-49c5-abcf-f0dd7ebb6560)
+
 ```
 ❗ To use the themes, it is necessary to clone the repository on your machine
 ```
@@ -61,7 +62,7 @@ To run the application, you need to have Python 3 installed and the following li
 3. Choose your theme (standard, grayline, mint, reddish)
 4. Open the **`main.py`** and modify this line of code:
 
-![terminal 2](https://github.com/Dimitri-Matheus/MinimalTube/assets/121637762/bc09b22b-9b23-46c9-9021-6e0060bce55d)
+![terminal 2](https://github.com/Dimitri-Matheus/MinimalTube/assets/121637762/10ad0cbc-69b7-43d6-ab0b-be995f2db34f)
 
 5. Now, just run your **application** and enjoy! ✨
 

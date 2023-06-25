@@ -1,7 +1,6 @@
 <h1 align="center">MinimalTube</h1>
 
 <h3 align="center">
-	<img src="https://github.com/Dimitri-Matheus/Dimitri-Matheus/assets/121637762/03ec39d0-9d1a-44cd-ba83-825681a44c3f" width="250" alt="Logo"/><br/>
 	<img src="https://raw.githubusercontent.com/catppuccin/catppuccin/main/assets/misc/transparent.png" height="30" width="0px"/>
 	This app features a minimalist design and enables easy downloading of YouTube videos. With an intuitive interface, users can input the video link and initiate the download process quickly and efficiently.
 	<img src="https://raw.githubusercontent.com/catppuccin/catppuccin/main/assets/misc/transparent.png" height="30" width="0px"/>

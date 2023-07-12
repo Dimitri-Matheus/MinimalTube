@@ -5,33 +5,32 @@ import webbrowser
 from pytube import YouTube
 import os
 
-#set default resolution
 quality = '360p'
 
-# change the theme to "light", "dark" and "system"
+# change the theme
 def change_mode(value):
     if value == 'light':
-        ctk.set_appearance_mode('light') #property for light mode
+        ctk.set_appearance_mode('light')
 
     elif value == 'dark':
-        ctk.set_appearance_mode('dark') #property for dark mode
+        ctk.set_appearance_mode('dark')
 
     else:
-        ctk.set_appearance_mode('system') #property for system mode (the mode is chosen from the system)
+        ctk.set_appearance_mode('system')
 
 
 # attach a link to open in browser
 def link(event, var):
     if var == 'GITHUB':
-        webbrowser.open_new('https://github.com/Dimitri-Matheus') #open github link
+        webbrowser.open_new('https://github.com/Dimitri-Matheus')
         print('link opened success!')
 
     elif var == 'INSTAGRAM':
-        webbrowser.open_new('https://www.instagram.com/dimi_math/') #open instagram link
+        webbrowser.open_new('https://www.instagram.com/dimi_math/')
         print('link opened success!')
 
     elif var == '':
-        webbrowser.open_new('') #open donwload folder
+        webbrowser.open_new('')
         
     else:
         print('ERROR: LINK NOT WORKING!')
@@ -68,12 +67,11 @@ def download_videos(url, state, button):
     global quality
     global new_folder_path
 
-    # get link to youtube videos
     youtube_var = YouTube(url)
 
     # download videos
     if state == 0:
-        create_folder_download('DOWNLOADED YOUTUBE VIDEOS HERE!')
+        create_folder_download('DOWNLOADED YOUTUBE VIDEOS!')
         youtube_var.streams.filter(progressive=True, file_extension='mp4', resolution=quality).first().download(output_path=new_folder_path)
         button.configure(text='Downloaded!')
 

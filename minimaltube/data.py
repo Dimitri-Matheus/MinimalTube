@@ -4,6 +4,7 @@ import customtkinter as ctk
 import webbrowser
 from pytube import YouTube
 import os
+import threading
 
 quality = '360p'
 
@@ -56,35 +57,47 @@ def create_folder_download(folder_name):
 
         # change downloads directory to new folder
         os.chdir(new_folder_path)
-        print(f"Download path changed to '{new_folder_path}'.")
+        print(f"Download path changed to '{new_folder_path}'")
 
     except OSError as e:
         print(f"Error creating folder: {str(e)}")
 
 
 # function to download videos from youtube using pytube
-def download_videos(url, state, button):
-    global quality
-    global new_folder_path
+def data_video(url, state, button):
+    def on_progress(stream, chunk, bytes_remaining):
+        total_size = stream.filesize
+        bytes_downloaded = total_size - bytes_remaining
+        percentage = (bytes_downloaded / total_size) * 100
+        print(f'Downloading: {percentage:.2f}%', end='\r', flush=True)
 
-    youtube_var = YouTube(url)
+    def download():
+        global quality
+        global new_folder_path
 
-    # download videos
-    if state == 0:
-        create_folder_download('DOWNLOADED YOUTUBE VIDEOS!')
-        youtube_var.streams.filter(progressive=True, file_extension='mp4', resolution=quality).first().download(output_path=new_folder_path)
-        button.configure(text='Downloaded!')
+        youtube_var = YouTube(url)
 
-        # video details
-        print(f'Title: {youtube_var.title}\nResolution: {quality}\nThumbnail: {youtube_var.thumbnail_url}')
+        if state == 0:
+            create_folder_download('DOWNLOADED YOUTUBE VIDEOS')
+            youtube_var.register_on_progress_callback(on_progress)
+            stream = youtube_var.streams.filter(progressive=True, file_extension='mp4', resolution=quality).first()
+            stream.download(output_path=new_folder_path)
 
-    # set resolution to 720p
-    elif state == 1:
-        quality = '720p'
-        button.configure(text='Resolution: 720p')
-        print(f'resolution set to {quality}')
+            button.configure(text='Downloaded!')
 
-    # show video title
-    elif state == 2:
-        button.configure(text=youtube_var.title)
+            print(f'Title: {youtube_var.title}\nResolution: {quality}\nThumbnail: {youtube_var.thumbnail_url}')
+
+        # set resolution to 720p
+        elif state == 1:
+            quality = '720p'
+            button.configure(text='Resolution: 720p')
+            print(f'resolution set to {quality}')
+
+        # show video title
+        elif state == 2:
+            button.configure(text=youtube_var.title)
+
+    # Create a new thread for download
+    thread = threading.Thread(target=download)
+    thread.start()
 

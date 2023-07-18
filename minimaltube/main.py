@@ -2,8 +2,7 @@
 from tkinter import *
 import customtkinter as ctk
 import PIL.Image, PIL.ImageTk
-from data import change_mode, link, download_videos
-
+from data import change_mode, link, data_video
 
 class MinimalTube(ctk.CTk):
     def __init__(self):
@@ -57,7 +56,7 @@ class MinimalTube(ctk.CTk):
         self.search = ctk.CTkEntry(self, placeholder_text='YOUR URL HERE!', font=ctk.CTkFont(size=14, weight='bold'), width=230, height=40, justify='center')
 
 
-        # function to change a pages
+        # function to change a page
         def change_buttons(status):
             if status == 'home':
                 # buttons
@@ -74,9 +73,9 @@ class MinimalTube(ctk.CTk):
                 self.button_push.configure(command=lambda: change_buttons('video_download'))
 
             elif status == 'video_download':
-                self.button_1.configure(image=self.find, command=lambda: download_videos(self.search.get(), 2, self.title))
-                self.button_2.configure(image=self.resolution, command=lambda: download_videos(self.search.get(), 1, self.title))
-                self.button_3.configure(image=self.download, command=lambda: download_videos(self.search.get(), 0, self.title))
+                self.button_1.configure(image=self.find, command=lambda: data_video(self.search.get(), 2, self.title))
+                self.button_2.configure(image=self.resolution, command=lambda: data_video(self.search.get(), 1, self.title))
+                self.button_3.configure(image=self.download, command=lambda: data_video(self.search.get(), 0, self.title))
 
                 self.title.configure(text='')
                 self.search.place(relx=0.4, rely=0.75, anchor=CENTER)

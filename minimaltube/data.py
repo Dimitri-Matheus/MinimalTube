@@ -64,11 +64,13 @@ def create_folder_download(folder_name):
 
 
 # function to download videos from youtube using pytube
-def data_video(url, state, button):
+def data_video(url, state, button, progress_name=0):
     def on_progress(stream, chunk, bytes_remaining):
         total_size = stream.filesize
         bytes_downloaded = total_size - bytes_remaining
         percentage = (bytes_downloaded / total_size) * 100
+        progress_name.set(percentage)
+        progress_name.place(relx=0.4, rely=0.9, anchor=N)
         print(f'Downloading: {percentage:.2f}%', end='\r', flush=True)
 
     def download():
@@ -81,17 +83,19 @@ def data_video(url, state, button):
             create_folder_download('DOWNLOADED YOUTUBE VIDEOS')
             youtube_var.register_on_progress_callback(on_progress)
             stream = youtube_var.streams.filter(progressive=True, file_extension='mp4', resolution=quality).first()
+            progress_name.start()
             stream.download(output_path=new_folder_path)
 
+            progress_name.stop()
+            progress_name.place_forget()
             button.configure(text='Downloaded!')
 
-            print(f'Title: {youtube_var.title}\nResolution: {quality}\nThumbnail: {youtube_var.thumbnail_url}')
+            print(f'\nVideo status:\ntitle: {youtube_var.title}\nresolution: {quality}\nthumbnail: {youtube_var.thumbnail_url}')
 
         # set resolution to 720p
         elif state == 1:
             quality = '720p'
-            button.configure(text='Resolution: 720p')
-            print(f'resolution set to {quality}')
+            button.configure(text='Resolution set to 720p')
 
         # show video title
         elif state == 2:

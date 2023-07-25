@@ -21,6 +21,13 @@
     "text_color":["#2B2B2B", "white"],
     "placeholder_text_color": ["gray52", "gray62"]
   },
+  "CTkProgressBar": {
+    "corner_radius": 1000,
+    "border_width": 0,
+    "fg_color": ["white", "#2B2B2B"],
+    "progress_color": ["#2B2B2B", "white"],
+    "border_color": ["white", "#2B2B2B"]
+  },
   "CTkFont": {
     "macOS": {
       "family": "SF Display",

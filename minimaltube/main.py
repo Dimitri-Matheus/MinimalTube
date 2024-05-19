@@ -49,7 +49,7 @@ class MinimalTube(ctk.CTk):
         self.title = ctk.CTkLabel(self, text='MinimalTube', font=ctk.CTkFont(size=16, weight='bold'))
         self.title.place(relx=0.4, rely=0.5, anchor=N)
 
-        self.description = ctk.CTkLabel(self, text='This program downloads youtube\n videos from a url.', font=ctk.CTkFont(size=12, weight='bold'), justify='center')
+        self.description = ctk.CTkLabel(self, text='This program downloads youtube\n videos from a url', font=ctk.CTkFont(size=12, weight='bold'), justify='center')
         self.description.configure(width=65, height=65, corner_radius=10, fg_color=('white', '#2B2B2B'))
         self.description.place(relx=0.4, rely=0.75, anchor=CENTER)
 
